@@ -1,0 +1,82 @@
+# Build Folders
+bin/
+obj/
+[Bb]uild/
+[Bb]uilds/
+
+# User-specific files
+*.userprefs
+*.csproj.user
+*.suo
+*.swp
+*.DS_Store
+*.sln.docstates
+
+# IDE files
+.vscode/
+.idea/
+*.tmproj
+*.user
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Xamarin/Mobile/MAUI-specific
+*.apk
+*.ap_
+*.dex
+*.class
+*.jar
+*.keystore
+*.img
+*.log
+*.hprof
+*.xcuserstate
+*.xcuserdata
+*.lock
+*.crash
+*.db
+*.db-wal
+*.db-shm
+*.mtj.tmp/
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# MAUI-specific generated files
+bin/
+obj/
+AppPackages/
+Resource.designer.cs
+.idea/
+
+# Package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+.pnp/
+
+# Dependencies
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Logs
+*.log
+*.tlog
+*.ide.log
+logs/

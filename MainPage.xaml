@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:components="clr-namespace:imago.Components"
+             x:Class="imago.MainPage">
+
+    <Grid BackgroundColor="{DynamicResource Secondary}">
+        <components:ImageSelector
+            x:Name="ImageSelector" IsVisible="True" />
+
+        <Grid x:Name="ConfigurationPanelGrid" IsVisible="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" /> <!-- Panneau de configuration -->
+                <ColumnDefinition Width="*" /> <!-- Zone pour l'image -->
+            </Grid.ColumnDefinitions>
+
+            <components:ConfigurationPanel
+                x:Name="ConfigurationPanel"
+                Grid.Column="0" />
+            <components:ImageViewer x:Name="ImageViewer" Grid.Column="1"></components:ImageViewer>
+        </Grid>
+    </Grid>
+</ContentPage>

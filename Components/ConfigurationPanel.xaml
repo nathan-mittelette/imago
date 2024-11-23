@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="imago.Components.ConfigurationPanel">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15" BackgroundColor="#F2F2F2">
+            <!-- Titre principal -->
+            <Label Text="Configuration"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   TextColor="{DynamicResource Tertiary}"
+                   HorizontalOptions="Start" />
+
+            <!-- Informations Section -->
+            <Border BackgroundColor="#FFFFFF"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Informations"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#1F2937" />
+
+                    <!-- Détails -->
+                    <Grid RowSpacing="8" ColumnSpacing="10">
+                        <!-- Configuration des colonnes -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Configuration des lignes -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!-- Ligne 1 -->
+                        <Label Text="Nom :" FontSize="16" TextColor="#4B5563" Grid.Row="0" Grid.Column="0" />
+                        <Label x:Name="NameLabel" FontSize="16" TextColor="#111827" Grid.Row="0" Grid.Column="1" />
+
+                        <!-- Ligne 2 -->
+                        <Label Text="Format :" FontSize="16" TextColor="#4B5563" Grid.Row="1" Grid.Column="0" />
+                        <Label x:Name="FormatLabel" FontSize="16" TextColor="#111827" Grid.Row="1" Grid.Column="1" />
+
+                        <!-- Ligne 3 -->
+                        <Label Text="Largeur :" FontSize="16" TextColor="#4B5563" Grid.Row="2" Grid.Column="0" />
+                        <Label x:Name="WidthLabel" FontSize="16" TextColor="#111827" Grid.Row="2" Grid.Column="1" />
+
+                        <!-- Ligne 4 -->
+                        <Label Text="Hauteur :" FontSize="16" TextColor="#4B5563" Grid.Row="3" Grid.Column="0" />
+                        <Label x:Name="HeightLabel" FontSize="16" TextColor="#111827" Grid.Row="3" Grid.Column="1" />
+
+                        <!-- Ligne 5 -->
+                        <Label Text="Taille :" FontSize="16" TextColor="#4B5563" Grid.Row="4" Grid.Column="0" />
+                        <Label x:Name="SizeLabel" FontSize="16" TextColor="#111827" Grid.Row="4" Grid.Column="1" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Nouvelle Section : Convertir -->
+            <Border BackgroundColor="#FFFFFF"
+                    Stroke="#E5E7EB"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Convertir"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#1F2937" />
+
+                    <!-- Liste déroulante pour les formats -->
+                    <Label Text="Choisissez un format :"
+                           FontSize="16" TextColor="#4B5563" />
+                    <Picker x:Name="FormatPicker"
+                            FontSize="16"
+                            TextColor="#111827"
+                            HorizontalOptions="FillAndExpand">
+                    </Picker>
+
+                    <Label Text="Choisissez une qualité :" FontSize="16" TextColor="#4B5563" />
+                    <Label Text="100" x:Name="QualityLabel" FontSize="16" FontAttributes="Bold" TextColor="#4B5563"
+                           HorizontalOptions="Center" HorizontalTextAlignment="Center">
+                    </Label>
+                    <Slider Maximum="100"
+                            x:Name="QualitySlider"
+                            Minimum="0"
+                            ThumbColor="{DynamicResource Tertiary}"
+                            Value="100"
+                            ValueChanged="OnSliderValueChanged" />
+
+                    <Label Text="Redimensionner"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#1F2937" />
+
+                    <!-- Inputs pour largeur et hauteur -->
+                    <HorizontalStackLayout Spacing="20">
+                        <VerticalStackLayout>
+                            <Label Text="Largeur (px)" FontSize="16" TextColor="#4B5563" />
+                            <Entry x:Name="WidthEntry" Keyboard="Numeric" TextChanged="OnWidthChanged" />
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout>
+                            <Label Text="Hauteur (px)" FontSize="16" TextColor="#4B5563" />
+                            <Entry x:Name="HeightEntry" Keyboard="Numeric" TextChanged="OnHeightChanged" />
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+
+                    <!-- Bouton de conversion -->
+                    <Button Text="Convertir l'image"
+                            FontSize="16"
+                            TextColor="White"
+                            BackgroundColor="{DynamicResource Tertiary}"
+                            CornerRadius="8"
+                            Padding="10"
+                            HorizontalOptions="FillAndExpand"
+                            Clicked="OnConvertButtonClicked" />
+                </VerticalStackLayout>
+            </Border>
+            <Grid HorizontalOptions="Center" VerticalOptions="End" Margin="0,20,0,0">
+                <Button x:Name="DeleteButton"
+                        BackgroundColor="LightCoral"
+                        CornerRadius="25"
+                        HeightRequest="50"
+                        WidthRequest="50"
+                        Clicked="OnDeleteButtonClicked">
+                    <Button.ImageSource>
+                        <FileImageSource File="trash"></FileImageSource>
+                    </Button.ImageSource>
+                </Button>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>
