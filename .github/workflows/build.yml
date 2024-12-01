@@ -22,8 +22,10 @@ jobs:
         with:
           dotnet-version: "9.0.x"
 
-      - name: Upgrade XCode tools
-        run: xcode-select --install
+      - name: "Setup Xcode"
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
 
       - name: Install .NET MAUI workload
         run: dotnet workload install maui
