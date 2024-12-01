@@ -3,9 +3,9 @@ using imago.ViewModels;
 
 namespace imago.Components;
 
-public partial class ImageViewer : ContentView
+public partial class ConfigurationPanelInformation : ContentView
 {
-    public ImageViewer()
+    public ConfigurationPanelInformation()
     {
         InitializeComponent();
         BindingContext = ServiceLocator.Resolve<ImageViewModel>();

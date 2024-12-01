@@ -5,14 +5,18 @@
              x:Class="imago.Components.ImageSelector">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="50">
         <VerticalStackLayout Spacing="20" Padding="50" HorizontalOptions="Center" VerticalOptions="Start">
-           <!-- Nom de l'application -->
+            
+            <Image Aspect="AspectFit" HorizontalOptions="Center"
+                   Source="icon_light"
+                   VerticalOptions="Center">
+            </Image>
+            
             <Label Text="IMAGO"
                    FontSize="32"
                    FontAttributes="Bold"
                    TextColor="{DynamicResource Primary}"
                    HorizontalTextAlignment="Center" />
 
-            <!-- Message de bienvenue -->
             <Label
                 Text="Bienvenue dans Imago, votre outil pratique pour redimensionner, convertir et optimiser vos images facilement."
                 FontSize="24"

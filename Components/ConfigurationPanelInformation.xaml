@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:imago.ViewModels"
+             x:DataType="viewModels:ImageViewModel"
+             x:Class="imago.Components.ConfigurationPanelInformation">
+    <Border BackgroundColor="#FFFFFF"
+            Stroke="#E5E7EB"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 12"
+            Padding="15">
+        <VerticalStackLayout Spacing="10">
+            <Label Text="Informations"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#1F2937" />
+
+            <!-- Détails -->
+            <Grid RowSpacing="8" ColumnSpacing="10">
+                <!-- Configuration des colonnes -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Configuration des lignes -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!-- Ligne 1 -->
+                <Label Text="Nom :" FontSize="16" TextColor="#4B5563" Grid.Row="0" Grid.Column="0" />
+                <Label Text="{Binding ImageData.Name}" FontSize="16" TextColor="#111827" Grid.Row="0" Grid.Column="1" />
+
+                <!-- Ligne 2 -->
+                <Label Text="Format :" FontSize="16" TextColor="#4B5563" Grid.Row="1" Grid.Column="0" />
+                <Label Text="{Binding ImageData.Format}" FontSize="16" TextColor="#111827" Grid.Row="1" Grid.Column="1" />
+
+                <!-- Ligne 3 -->
+                <Label Text="Largeur :" FontSize="16" TextColor="#4B5563" Grid.Row="2" Grid.Column="0" />
+                <Label Text="{Binding ImageData.Width, StringFormat='{0:F0} px'}" FontSize="16" TextColor="#111827"
+                       Grid.Row="2" Grid.Column="1" />
+
+                <!-- Ligne 4 -->
+                <Label Text="Hauteur :" FontSize="16" TextColor="#4B5563" Grid.Row="3" Grid.Column="0" />
+                <Label Text="{Binding ImageData.Height, StringFormat='{0:F0} px'}" FontSize="16" TextColor="#111827"
+                       Grid.Row="3" Grid.Column="1" />
+
+                <!-- Ligne 5 -->
+                <Label Text="Taille :" FontSize="16" TextColor="#4B5563" Grid.Row="4" Grid.Column="0" />
+                <Label Text="{Binding ImageData.Size}" FontSize="16" TextColor="#111827" Grid.Row="4" Grid.Column="1" />
+            </Grid>
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

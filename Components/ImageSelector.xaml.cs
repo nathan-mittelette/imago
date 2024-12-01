@@ -1,23 +1,21 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using imago.Services;
+using imago.Utils;
 
 namespace imago.Components;
 
 public partial class ImageSelector : ContentView
 {
-    public ImageStateService? ImageStateService { get; set; }
+    private readonly ImageLoaderService _imageLoaderService;
 
     public ImageSelector()
     {
         InitializeComponent();
 
+        _imageLoaderService = ServiceLocator.Resolve<ImageLoaderService>();
+
         PlaceholderView.GestureRecognizers.Add(new TapGestureRecognizer
         {
-            Command = new Command(async () => { await ImportImage(); })
+            Command = new Command(async void () => { await ImportImage(); })
         });
     }
 
@@ -29,13 +27,6 @@ public partial class ImageSelector : ContentView
             FileTypes = FilePickerFileType.Images
         });
 
-        if (result != null)
-        {
-            await using (var stream = await result.OpenReadAsync())
-            {
-                ImageStateService!.UpdateImage(ImageSource.FromFile(result.FullPath), stream, result.ContentType,
-                    result.FileName);
-            }
-        }
+        await _imageLoaderService.LoadImage(result?.FullPath);
     }
 }

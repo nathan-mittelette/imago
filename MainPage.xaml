@@ -3,22 +3,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:components="clr-namespace:imago.Components"
+             xmlns:viewModels="clr-namespace:imago.ViewModels"
+             x:DataType="viewModels:ImageViewModel"
              x:Class="imago.MainPage">
 
     <Grid BackgroundColor="{DynamicResource Secondary}">
-        <components:ImageSelector
-            x:Name="ImageSelector" IsVisible="True" />
+        <components:ImageSelector IsVisible="{Binding IsImageVisible, Converter={StaticResource InvertBooleanConverter}}" />
 
-        <Grid x:Name="ConfigurationPanelGrid" IsVisible="False">
+        <Grid
+            IsVisible="{Binding IsImageVisible}">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300" /> <!-- Panneau de configuration -->
-                <ColumnDefinition Width="*" /> <!-- Zone pour l'image -->
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <components:ConfigurationPanel
-                x:Name="ConfigurationPanel"
-                Grid.Column="0" />
-            <components:ImageViewer x:Name="ImageViewer" Grid.Column="1"></components:ImageViewer>
+            <components:ConfigurationPanel Grid.Column="0" />
+            <components:ImageViewer Grid.Column="1"></components:ImageViewer>
         </Grid>
     </Grid>
 </ContentPage>
