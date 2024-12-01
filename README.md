@@ -1,5 +1,7 @@
 # Imago
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nathan-mittelette_imago&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nathan-mittelette_imago)
+
 Bienvenue dans **Imago**, votre application pratique pour redimensionner, convertir et optimiser vos images en toute simplicité.
 
 ---
@@ -85,7 +87,7 @@ Que vous soyez un professionnel ou un amateur, **Imago** est conçu pour offrir 
 
 ## 🤝 Contribuer
 
-Nous accueillons avec plaisir vos contributions ! 
+Nous accueillons avec plaisir vos contributions !
 
 1. Forkez le projet.
 2. Créez une branche pour vos modifications :
