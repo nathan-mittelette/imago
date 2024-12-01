@@ -19,6 +19,12 @@ jobs:
         with:
           dotnet-version: "9.0.x"
 
+      - name: Upgrade XCode tools
+        run: xcode-select --install
+
+      - name: Install .NET MAUI workload
+        run: dotnet workload install maui
+
       - name: Install dependencies
         run: dotnet restore
 
