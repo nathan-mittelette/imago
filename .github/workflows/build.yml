@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-maui-mac:
-    runs-on: macos-15
+    runs-on: macos-latest
     strategy:
       matrix:
         architecture: [arm64, x86_64]
