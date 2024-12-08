@@ -1,6 +1,14 @@
 # Imago
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nathan-mittelette_imago&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=nathan-mittelette_imago)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/nathan-mittelette/imago)
+![GitHub Release Date](https://img.shields.io/github/release-date/nathan-mittelette/imago)
+![GitHub All Releases](https://img.shields.io/github/downloads/nathan-mittelette/imago/total)
+![GitHub](https://img.shields.io/github/license/nathan-mittelette/imago)
+![Build Status](https://img.shields.io/github/actions/workflow/status/nathan-mittelette/imago/build.yml)
+![GitHub contributors](https://img.shields.io/github/contributors/nathan-mittelette/imago)
+![GitHub repo size](https://img.shields.io/github/repo-size/nathan-mittelette/imago)
+
 
 Bienvenue dans **Imago**, votre application pratique pour redimensionner, convertir et optimiser vos images en toute simplicité.
 
