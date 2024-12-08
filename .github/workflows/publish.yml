@@ -35,20 +35,17 @@ jobs:
       - name: Build project for ${{ matrix.architecture }}
         run: dotnet publish -f net9.0-maccatalyst -c Release -o output/${{ matrix.architecture }} -p:CreatePackage=false
 
-      - name: Extract Tag
-        id: extract_tag
-        run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get Release ID
+        id: get_release
+        uses: actions/github-script@v6
         with:
-          tag_name: ${{ env.TAG_NAME }}
-          release_name: ${{ env.TAG_NAME }}
-          draft: false
-          prerelease: false
+          script: |
+            const release = await github.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: context.ref.replace('refs/tags/', ''),
+            });
+            core.setOutput("upload_url", release.upload_url.split('{')[0]);
 
       - name: Upload macOS .app files
         uses: actions/upload-release-asset@v1
