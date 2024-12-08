@@ -33,7 +33,7 @@ jobs:
         run: dotnet workload install maui-maccatalyst
 
       - name: Build project for ${{ matrix.architecture }}
-        run: dotnet publish -f net9.0-maccatalyst -c Release -o output/${{ matrix.architecture }} -p:CreatePackage=false
+        run: dotnet publish -f net9.0-maccatalyst -c Release -p:CreatePackage=false
 
       - name: Get Release Upload URL
         id: get_release
@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.get_release.outputs.upload_url }}
-          asset_path: output/${{ matrix.architecture }}/Imago.app
+          asset_path: bin/Release/net9.0-maccatalyst/imago.app
           asset_name: Imago-${{ matrix.architecture }}.app
           asset_content_type: application/octet-stream
         env:
