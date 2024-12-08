@@ -28,7 +28,7 @@ jobs:
           xcode-version: latest-stable
 
       - name: Install .NET MAUI workload
-        run: dotnet workload install maui
+        run: dotnet workload install maui-maccatalyst
 
       - name: Restore dependencies
         run: dotnet restore
